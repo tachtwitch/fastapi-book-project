@@ -1,4 +1,4 @@
-name: Deployment Pipleline
+name: Continous Deployment Pipleline
 
 on:
   pull_request:

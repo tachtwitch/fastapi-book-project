@@ -68,5 +68,5 @@ jobs:
               issue_number: github.context.pullRequest.number,
               owner: github.context.repo.owner,
               repo: github.context.repo.repo,
-              body: 'Deployment successful! [View deployment](https://sunbeam-noted-quetzal.ngrok-free.app)'
+              body: 'Deployment successful! [View deployment](https://sunbeam-noted-quetzal.ngrok-free.app) '
             })

@@ -58,4 +58,4 @@ jobs:
       - name: Start Ngrok tunnel
         run: |
           ngrok config add-authtoken ${{ secrets.NGROK_AUTHTOKEN }}
-          ngrok http --url=sunbeam-noted-quetzal.ngrok-free.app 8000 && echo tunneling
+          ngrok http --url=sunbeam-noted-quetzal.ngrok-free.app 8000 && echo tunneling started

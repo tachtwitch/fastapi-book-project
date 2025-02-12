@@ -5,7 +5,10 @@ on:
     types: [closed]
     branches:
       - main
-    if: github.event.pull_request.merged == true 
+    if: github.event.pull_request.merged == true
+  push:
+    branches: 
+      - main
 
 jobs:
   deploy:
@@ -34,7 +37,7 @@ jobs:
 
       - name: Build and package
         run: |
-          uvicorn main:app --host 0.0.0.0 --port 8000 & echo server running
+          uvicorn main:app --host 0.0.0.0 --port 5000 & echo server running
 
       - name: Install Nginx
         run: |
@@ -58,4 +61,4 @@ jobs:
       - name: Start Ngrok tunnel
         run: |
           ngrok config add-authtoken ${{ secrets.NGROK_AUTHTOKEN }}
-          ngrok http --url=sunbeam-noted-quetzal.ngrok-free.app 8000 & echo tunneling started...
+          ngrok http --url=sunbeam-noted-quetzal.ngrok-free.app 5000 & echo tunneling started...

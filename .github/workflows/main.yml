@@ -59,3 +59,14 @@ jobs:
         run: |
           ngrok config add-authtoken ${{ secrets.NGROK_AUTHTOKEN }}
           ngrok http --url=sunbeam-noted-quetzal.ngrok-free.app 8000 & echo tunneling started...
+      - name: Create deployment comment
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.createComment({
+              issue_number: github.context.pullRequest.number,
+              owner: github.context.repo.owner,
+              repo: github.context.repo.repo,
+              body: 'Deployment successful! [View deployment](https://your-deployment-url.com)'
+            })
